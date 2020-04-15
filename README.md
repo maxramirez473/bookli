@@ -3,7 +3,7 @@
 Aplicación utilizada en la cursada 2020 de Ingenieria de Software. UTN-FRLP
 Grupo n°4
 -Ramirez Chavez Jose
-
+Nadia valdez
 ## Dependencias
 
  - node > v10
