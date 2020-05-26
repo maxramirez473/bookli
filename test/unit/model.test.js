@@ -436,7 +436,6 @@ test('Finalizar un libro en estado disponible', async () => {
     expect(receivedBook.status).toBe(BookModels.status.AVAILABLE);
 });
 
-
 test('VerificarGenresNoVacio', async () => {
     const bookData = {
         title: 'El Aleph',
@@ -450,10 +449,9 @@ test('VerificarGenresNoVacio', async () => {
         cover: '/assets/el-aleph.jpg',
     };
 
-    // Creamos el libro
+    // Creamos el libro.
     const book = await BookModels.create(bookData);
 
-    // Array genres no es vacio
+    // Array genres no es vacio.
     expect(book.genres).not.toBe(null);
- 
 });
