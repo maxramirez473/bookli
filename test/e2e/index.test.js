@@ -41,6 +41,16 @@ describe('Home Test', () => {
                 '/assets/logo.svg'
             );
     });
+    test('Deberia mostrar el placeholder buscar libro ej:El principito', browser => {
+        browser
+            .url(BASE_URL)
+            .waitForElementVisible('body')
+            .waitForElementVisible('body > header > div.search > input')
+            .assert.attributeContains('body > header > div.search > input',
+             'placeholder',
+             'Buscar libro ej:El principito');
+            
+    });
 
     test('Deberia mostrar la lista de libros', browser => {
         browser
