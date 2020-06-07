@@ -453,5 +453,6 @@ test('VerificarGenresNoVacio', async () => {
     const book = await BookModels.create(bookData);
 
     // Array genres no es vacio.
-    expect(book.genres).not.toBe(null);
-});
+    expect(book.genres.length).not.toBe(0);
+}
+)
