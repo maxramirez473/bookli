@@ -52,6 +52,16 @@ describe('Home Test', () => {
             
     });
 
+    test('Deberia probar que el tamaño es 20px para la synopsis', browser => {
+        browser
+            .url(BASE_URL)
+            .waitForElementVisible('body')
+            .assert.cssProperty('p.book__synopsis',
+             'font-size',
+             '20px');
+            
+    });
+
     test('Deberia mostrar la lista de libros', browser => {
         browser
             .url(BASE_URL)
