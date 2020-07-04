@@ -11,6 +11,11 @@
     cursor: pointer;
 }
 
+/*agrego selector para las synopsis de los libros y cambio a 20px*/
+.book__synopsis{
+    font-size: 20px;
+}
+
 .book-link {
     all: unset;
 }
