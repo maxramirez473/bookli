@@ -41,6 +41,16 @@ describe('Home Test', () => {
                 '/assets/logo.svg'
             );
     });
+    test('Deberia mostrar el placeholder buscar libro ej:El principito', browser => {
+        browser
+            .url(BASE_URL)
+            .waitForElementVisible('body')
+            .waitForElementVisible('body > header > div.search > input')
+            .assert.attributeContains('body > header > div.search > input',
+             'placeholder',
+             'Buscar libro ej:El principito');
+            
+    });
 
     test('Deberia mostrar la lista de libros', browser => {
         browser
@@ -158,5 +168,44 @@ describe('Detail view', () => {
         browser.expect
             .element('.book__actions [data-ref=removeFromFinish]')
             .text.to.equal('Volver a leer');
+    });
+
+    test('Verificar enlace de brand corresponda a la pagina principal', browser => {
+        browser
+        .url(BASE_URL + '/detail/1')
+            .waitForElementVisible('body')
+            .waitForElementVisible('.brand__logo')
+            .click('.brand__logo')
+            .pause(400).assert.urlEquals(BASE_URL + "/");
+
+
+        //verificar existencia de elementos de principal    
+        browser
+            //con los mismos elementos de muestra
+            .url(BASE_URL)
+            .waitForElementVisible('body')
+            .waitForElementVisible('.booklist .book')
+            .assert.elementPresent('.booklist .book');
+
+        browser
+            //input search
+            .url(BASE_URL)
+            .waitForElementVisible('body')
+            .waitForElementVisible('.search')
+            .assert.elementPresent('.search');
+        
+        browser
+            //existencia de brand
+            .url(BASE_URL)
+            .waitForElementVisible('body')
+            .waitForElementVisible('.brand')
+            .assert.elementPresent('.brand');
+
+        browser
+            //existencia de filters containter
+            .url(BASE_URL)
+            .waitForElementVisible('body')
+            .waitForElementVisible('.filters-container')
+            .assert.elementPresent('.filters-container');
     });
 });
