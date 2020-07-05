@@ -70,6 +70,23 @@ describe('Home Test', () => {
             .assert.elementPresent('.booklist .book');
     });
 
+
+
+
+/* Verifico el color modificado de los bordes*/
+    test('El borde de cada libro deberia tener el color solicitado', browser => {
+        browser
+            .url(BASE_URL)
+            .waitForElementVisible('body')
+            .waitForElementVisible('.booklist .book')
+            .assert.cssProperty(
+                'body > main > div > div.books-container > div',
+                'border-color', 
+                'rgb(26, 32, 44)');
+    });
+
+
+
     test('Deberia poder encontrar un libro por titulo', browser => {
         browser
             .url(BASE_URL)
