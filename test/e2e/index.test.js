@@ -225,4 +225,20 @@ describe('Detail view', () => {
             .waitForElementVisible('.filters-container')
             .assert.elementPresent('.filters-container');
     });
+
+    test('Deberia mostrar boton comprar y dirigir a amazon', browser => {browser
+        .url(BASE_URL + '/' )
+      .waitForElementVisible('body')
+      .waitForElementVisible('.comprar')
+      .waitForElementVisible('body > main > div > div.books-container > div > a:nth-child(2) > div > div.book__body > p:nth-child(2) > button')
+      
+      .click('body > main > div > div.books-container > div > a:nth-child(2) > div > div.book__body > p:nth-child(2) > button')  
+      .pause(400)
+       .click('body > main > div > div.book__body > p:nth-child(2) > button')         
+      .assert.urlEquals('https://www.amazon.es/comprar-libros-espa%C3%B1ol/b?ie=UTF8&node=599364031'); 
+
+
+       });
+
+
 });
